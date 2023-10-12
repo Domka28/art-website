@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART-website</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/close.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-name">
+            <img class="logo" src="src/img/logo2.png" alt="logo">
+            <a href="index.html">ruda wiewiórka art</a>
+        </div>
+        <div class="links">
+            <li class="navigation-item">
+                <a href="index.html">strona główna</a>
+            </li>
+            <li class="navigation-item">
+                <a href="gallery.html">galeria</a>
+            </li>
+            <li class="navigation-item">
+                <a href="contact.html">kontakt</a>
+            </li>
+            <li class="navigation-item nav-basket">
+                <a href="basket.html">koszyk</a>
+                <span class="counter">0</span>
+            </li>
+            <strong id="mobile-menu-btn"><i class="gg-menu"></i></strong>
+        </div>
+    </nav>
+    <!-- Small Screen Navigation Bar -->
+    <div class="mobile-menu">
+
+        <li class="navigation-item">
+            <a href="index.html">strona główna</a>
+        </li>
+        <li class="navigation-item">
+            <a href="gallery.html">galeria</a>
+        </li>
+        <li class="navigation-item">
+            <a href="contact.html">kontakt</a>
+        </li>
+        <li class="navigation-item nav-basket">
+            <a href="basket.html">koszyk</a>
+            <span class="counter">0</span>
+        </li>
+    </div>
+
+    <div class="basket-container">
+        <h2>Twoje zamówienie:</h2>
+
+
+        <table class="basket-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Produkt</th>
+                    <th>Ilość</th>
+                    <th>Cena</th>
+                </tr>
+            </thead>
+            <tbody id="items"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" style="text-align: right;"><b>Razem:</b></td>
+                    <td><b id="total-price">0</b></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div style="float: right; margin-top: 20px;">
+            <a href="order.html" class="button" id="go-to-summary">Dalej</a>
+        </div>
+
+    </div>
+
+    <script src="./src/js/app.js" module="type"></script>
+</body>
+
+</html>
