@@ -1,3 +1,5 @@
+// navbar
+
 let mobileMenuBtn = document.querySelector("#mobile-menu-btn");
 let mobileMenu = document.querySelector(".mobile-menu");
 mobileMenuBtn.addEventListener("click", () => {
@@ -11,4 +13,10 @@ mobileMenuBtn.addEventListener("click", () => {
     }
 });
 
-console.log("sdbdnf")
+export function renderBasket() {
+    const basketCounter = document.querySelector(".counter")
+    let items = JSON.parse(localStorage.getItem('basketIds')) || [];
+    basketCounter.innerText = items.length;
+}
+
+renderBasket()

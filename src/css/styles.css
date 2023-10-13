@@ -95,10 +95,14 @@ nav .links a {
 
 .nav-basket span {
     margin-right: 1.2em;
-    color: #d4a373;
+    margin-left: 0;
+    background-color: #fff;
+    color: #000;
     font-size: 1.2em;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-weight: bold;
 }
-
 
 #mobile-menu-btn {
     display: none;
@@ -286,7 +290,8 @@ img {
 }
 
 .basket-table td input {
-    width: 30px;
+    width: 40px;
+    margin-left: 35%;
 }
 
 .basket-table th {
@@ -299,6 +304,15 @@ img {
     font-size: 18px;
     color: grey;
     cursor: pointer;
+    margin-left: 45%;
+}
+
+.basket-price {
+    margin-left: 40%;
+}
+
+#total-price {
+    margin-left: 40%;
 }
 
 @media (max-width: 600px) {
