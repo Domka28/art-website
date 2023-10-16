@@ -21,7 +21,7 @@ data.forEach(element => {
 
 function getBoxElement(element) {
     return `<div class="box">
-    <div class="img-container">
+    <div class="img-container-home">
         <img src="${element.image}" alt=${element.title}>
     </div>
     <div class="box-body">

@@ -118,8 +118,15 @@ nav .links a {
     background-color: #ccd5ae;
 }
 
+@media (max-width: 1055px) {
 
-@media (max-width: 600px) {
+    .logo-name a {
+        display: none;
+    }
+}
+
+
+@media (max-width: 808px) {
 
     #mobile-menu-btn {
         display: block;
@@ -216,7 +223,7 @@ h2 {
     margin-top: 0.5em;
 }
 
-.img-container {
+.img-container-home {
     height: 380px;
     width: 430px;
     overflow: hidden;
@@ -243,12 +250,38 @@ img {
 }
 
 
+@media (max-width: 930px) {
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        width: 600;
+        margin: 0 auto;
+    }
+
+    .home-container h2 {
+        font-size: 2em;
+
+    }
+
+    .img-container-home {
+        height: 480px;
+        width: 555px;
+        overflow: hidden;
+
+    }
+
+
+}
+
 @media (max-width: 600px) {
     .home-container {
         display: flex;
         flex-direction: column;
-        padding-left: 18px;
-        width: 100%;
+        padding-left: 14px;
+        max-width: 380px;
+        width: 380;
+        margin: 0 auto;
         margin-top: 30px;
     }
 
@@ -256,7 +289,7 @@ img {
         font-size: 1.5em;
     }
 
-    .img-container {
+    .img-container-home {
         height: 380px;
         width: 350px;
         overflow: hidden;
@@ -315,6 +348,10 @@ img {
     margin-left: 40%;
 }
 
+.basket-button {
+    margin-bottom: 20px;
+}
+
 @media (max-width: 600px) {
     .basket-container {
         display: flex;
@@ -326,6 +363,10 @@ img {
 
     .basket-container h2 {
         font-size: 1.5em;
+    }
+
+    #total-price {
+        margin-left: 20%;
     }
 
 }
@@ -351,13 +392,36 @@ img {
     border: 2px solid #d4a373;
 }
 
+@media (max-width: 930px) {
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        width: 600;
+        margin: 0 auto;
+    }
+
+    .gallery-container h2 {
+        font-size: 3em;
+
+    }
+
+    .img-container {
+        height: 550px;
+        width: 700px;
+        overflow: hidden;
+
+    }
+}
 
 @media (max-width: 600px) {
     .gallery-container {
         display: flex;
         flex-direction: column;
         padding-left: 18px;
-        width: 100%;
+        max-width: 380px;
+        width: 380;
+        margin: 0 auto;
         margin-top: 30px;
     }
 
@@ -413,7 +477,6 @@ img {
     .contact-container h2 {
         font-size: 1.5em;
     }
-
 }
 
 

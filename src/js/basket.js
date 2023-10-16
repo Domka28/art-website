@@ -67,7 +67,7 @@ items.forEach(item => {
     })
 });
 totalPrice.innerText = totalPriceCounter
-//ustawiam sobie tę cenę do local storage
+//ustawiam sobie tę cenę do localstorage
 localStorage.setItem('totalPrice', JSON.stringify(totalPriceCounter));
 
 

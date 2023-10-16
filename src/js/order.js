@@ -7,12 +7,12 @@ const validateName = (value) => {
     if (value.length < 3) return 'Imię i nazwisko jest za krótkie';
 }
 const validateEmail = (value) => {
-    if (!value) return 'Email jest wymagany';
+    if (!value) return 'E-mail jest wymagany';
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!regex.test(value)) return 'Email nie jest poprawny';
+    if (!regex.test(value)) return 'E-mail nie jest poprawny';
 }
 const validateEmailConfirm = (value, email) => {
-    if (value !== email) return 'Emaile się nie zgadzają';
+    if (value !== email) return 'E-maile się nie zgadzają';
 }
 const validateTel = (value) => {
     console.log(value)
