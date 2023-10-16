@@ -16,7 +16,11 @@ mobileMenuBtn.addEventListener("click", () => {
 export function renderBasket() {
     const basketCounter = document.querySelector(".counter")
     let items = JSON.parse(localStorage.getItem('basketIds')) || [];
-    basketCounter.innerText = items.length;
+    let counter = 0;
+    items.forEach(element => {
+        counter += element[1]
+    });
+    basketCounter.innerText = counter;
 }
 
 renderBasket()

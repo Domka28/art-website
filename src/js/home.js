@@ -33,37 +33,35 @@ function getBoxElement(element) {
 </div>`
 }
 
-let basketArray = [];
+
+let basketMap = new Map();
 
 const addToBasket = (e) => {
     if (e.target.tagName !== 'BUTTON') return;
     const id = Number(e.target.dataset.id);
+    let storedBasket = localStorage.getItem('basketIds');
 
-    if (localStorage.getItem('basketIds') === null) {
-        basketArray.push(id)
-        localStorage.setItem('basketIds', JSON.stringify(basketArray));
-
+    if (storedBasket === null) {
+        basketMap.set(id, 1);
     } else {
-        let basketArrayFromLocalStorage = JSON.parse(localStorage.getItem("basketIds"))
-        basketArrayFromLocalStorage.push(id)
-        localStorage.setItem('basketIds', JSON.stringify(basketArrayFromLocalStorage));
+        //jeśli istnieją już dane w local stroge to pobieram je i przekształcam w mapę
+        basketMap = new Map(JSON.parse(storedBasket));
+        // sprawdzam, czy obiekt o danym id już istnieje
+        if (basketMap.has(id)) {
+            // jeśli istnieje to zwiększam liczbę produktów 
+            basketMap.set(id, basketMap.get(id) + 1);
+        } else {
+            // Jeśli nie, dodaję nowy produkt
+            basketMap.set(id, 1);
+        }
     }
-
-
-
+    // Zapisuję zaktualizowaną mapę w localStorage jako obiekt JSON
+    localStorage.setItem('basketIds', JSON.stringify([...basketMap]));
     renderBasket()
 }
-
 
 
 const boxButtons = document.querySelectorAll(".box-button")
 boxButtons.forEach(button => {
     button.addEventListener("click", addToBasket)
 })
-
-
-
-//po kliknięciu w ten przycisk chcę dodać  coś takiego jak button.setAttribute('disabled', 'true');
-//żeby nie było możliwości dodania drugi raz takiej samej rzeczy lub żeby po kliknięciu w dodanie zmieniał się też
-//licznik w koszyku
-

@@ -289,7 +289,7 @@ img {
     padding: 10px;
 }
 
-.basket-table td input {
+.basket-table td div {
     width: 40px;
     margin-left: 35%;
 }
@@ -425,8 +425,9 @@ img {
     margin: 0 auto;
 }
 
-input,
-textarea {
+.quantity,
+textarea,
+input {
     padding: 6px;
     border: 0;
     border-bottom: 3px solid #dbdbdb;
@@ -458,6 +459,10 @@ textarea {
     margin-bottom: 10px;
 }
 
+.card .total-price-confirmation {
+    margin-top: 1em;
+}
+
 .summary {
     display: flex;
     gap: 20px;
@@ -465,6 +470,20 @@ textarea {
 
 .order-container p {
     margin-bottom: 20px;
+}
+
+#errors li {
+    list-style-type: none;
+    background-color: #f45f5f;
+    border: 2px dashed red;
+    color: #fff;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+#items-list,
+#errors {
+    list-style-type: none;
 }
 
 @media (max-width: 600px) {
@@ -515,7 +534,15 @@ textarea {
     padding: 0 20px;
     max-width: 980px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.thanks-container h2 {
+    margin: 50px auto 20px auto;
+}
+
 
 @media (max-width: 600px) {
 
