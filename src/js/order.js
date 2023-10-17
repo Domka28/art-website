@@ -41,6 +41,17 @@ const validateValues = (values) => {
     return errors.length > 0;
 }
 
+function getAllItems() {
+    let allItems = [];
+    //iterowanie po itemsach wyciągając z nich tytuł, ilośc i cenę 
+    items.forEach(item => {
+        data.filter(el => el.id === item[0]).forEach(element => allItems.push({
+            "quantity": item[1], "title": element.title, "price": element.price
+        }))
+    });
+    return allItems;
+}
+
 const onSubmit = (e) => {
     e.preventDefault();
 
@@ -50,18 +61,54 @@ const onSubmit = (e) => {
         email: elements['email'].value,
         'email-confirm': elements['email-confirm'].value,
         tel: elements['tel'].value,
-
     };
+
+    let price = localStorage.getItem('totalPrice') || 0;
+
 
     const hasErrors = validateValues(values);
     if (!hasErrors) {
-        // czyszczenie localstorage czyli koszyka i totalprice
-        localStorage.removeItem('basketIds');
-        localStorage.removeItem('totalPrice');
+        console.log("zamawiam")
+        const templateParams = {
+            form_name: values.name,
+            form_email: values.email,
+            form_tel: values.tel,
+            form_add_info: elements['textarea'].value,
+            summary: JSON.stringify(getAllItems()),
+            price: price,
+            order_date: new Date().toLocaleString(),
+        }
+        console.log("dssfsfd", templateParams)
+        sendOrderEmail(templateParams)
 
-        //przekierowanie na stronę podziękowań
-        window.location.href = '/order-confirmation.html';
+
     }
+}
+
+
+function sendOrderEmail(templateParams) {
+    var data = {
+        service_id: 'service_rr2lidm',
+        template_id: 'template_6k29gab',
+        user_id: 'JheUf4saOvQd_DdBq',
+        template_params: templateParams
+    }
+
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(resp => {
+            if (resp.status === 200) {
+                // czyszczenie localstorage czyli koszyka i totalprice
+                localStorage.removeItem('basketIds');
+                localStorage.removeItem('totalPrice');
+                window.location.href = '/order-confirmation.html'
+            }
+        }).catch(e => console.log(e))
 }
 
 // podpięcie formularza
@@ -82,24 +129,17 @@ const itemsContainer = document.querySelector('#items-list');
 
 //pobranie z pamięci itemsów, które są w koszyku
 let items = JSON.parse(localStorage.getItem('basketIds')) || [];
-console.log("items", items)
 
-let allItems = [];
-//iterowanie po itemsach wyciągając z nich tytuł, ilośc i cenę 
-items.forEach(item => {
-    data.filter(el => el.id === item[0]).forEach(element => allItems.push({
-        "quantity": item[1], "title": element.title, "price": element.price
-    }))
-});
 
 //generowanie itemsów w podsumowaniu
-const showProducts = (products, element) => {
+const showProducts = (element) => {
+    let products = getAllItems();
     const html = products
         .map(p => `<li>${p.quantity} x "${p.title}"</li>`)
         .join('');
     element.innerHTML = html;
 }
-showProducts(allItems, itemsContainer);
+showProducts(itemsContainer);
 
 // wyświetl cene całkowitą
 const priceContainer = document.querySelector('#total-price-confirmation');

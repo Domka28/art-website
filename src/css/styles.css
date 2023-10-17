@@ -118,6 +118,11 @@ nav .links a {
     background-color: #ccd5ae;
 }
 
+
+.basket-icon {
+    display: none;
+}
+
 @media (max-width: 1055px) {
 
     .logo-text {
@@ -127,6 +132,19 @@ nav .links a {
 
 
 @media (max-width: 808px) {
+
+    /* .basket-icon {
+        display: flex;
+        border: 1px solid white;
+        background-color: white;
+        padding: 6px;
+        margin-right: 20px;
+    } */
+
+    /* 
+    div .links a {
+        margin: 0;
+    } */
 
     #mobile-menu-btn {
         display: block;

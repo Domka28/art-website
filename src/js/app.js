@@ -20,11 +20,12 @@ navigation.innerHTML = `<nav>
         <a class="link" href="basket.html">koszyk</a>
         <span class="counter">0</span>
     </li>
+ 
     <strong id="mobile-menu-btn"><i class="gg-menu"></i></strong>
 </div>
 </nav>
 
-<div class="mobile-menu" style="display: none;"> <!-- Ukryte na początek -->
+<div class="mobile-menu" style="display: none;"> 
 <li class="navigation-item">
     <a href="index.html">strona główna</a>
 </li>
@@ -46,7 +47,7 @@ let mobileMenu = document.querySelector(".mobile-menu");
 mobileMenuBtn.addEventListener("click", () => {
     if (mobileMenu.style.display === "none" || mobileMenu.style.display === "") {
         mobileMenu.style.display = "flex";
-        mobileMenuBtn.innerHTML = '<i class="gg-close"></i>';
+        mobileMenuBtn.innerHTML = '<i class="gg-close""></i>';
     }
     else {
         mobileMenu.style.display = "none";
@@ -57,12 +58,22 @@ mobileMenuBtn.addEventListener("click", () => {
 
 export function renderBasket() {
     const basketCounter = document.querySelector(".counter")
+    //const basketMobileCounter = document.querySelector(".mobile-counter")
     let items = JSON.parse(localStorage.getItem('basketIds')) || [];
     let counter = 0;
     items.forEach(element => {
         counter += element[1]
     });
     basketCounter.innerText = counter;
+    // basketMobileCounter.innerText = counter;
 }
 
 renderBasket()
+
+
+{/* <a href="basket.html">
+<div class="basket-icon">
+<i class="gg-shopping-cart" style="color: black; margin-right: 10px;"></i>
+<span class="mobile-counter" style="color: black;">0</span>
+</div>
+</a> */}
