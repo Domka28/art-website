@@ -1,6 +1,5 @@
 import { gallery } from "./data.js"
 
-//gallery
 const galleryPortraits = document.querySelector(".gallery-portraits")
 const galleryAnimals = document.querySelector(".gallery-animals")
 const galleryWatercollor = document.querySelector(".gallery-watercolor")

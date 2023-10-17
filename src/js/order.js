@@ -1,7 +1,6 @@
 import { data } from "./data.js";
 
 //walidacja inputów
-
 const validateName = (value) => {
     if (!value) return 'Imię i nazwisko jest wymagane';
     if (value.length < 3) return 'Imię i nazwisko jest za krótkie';
@@ -35,7 +34,6 @@ const validateValues = (values) => {
         const error = validate(key, value, values);
         if (error) errors.push(error);
     })
-
     document.querySelector('#errors').innerHTML = errors
         .map(e => `<li>${e}</li>`)
         .join('');

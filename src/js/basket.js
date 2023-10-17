@@ -4,15 +4,18 @@ import { data } from "./data.js";
 const itemsContainer = document.querySelector('#items');
 const totalPrice = document.querySelector('#total-price')
 
+let items;
 //pobranie z pamięci id itemsów w koszyku
-let items = JSON.parse(localStorage.getItem('basketIds')) || [];
-console.log("items", items)
-
-
+function refreshLocalStorage() {
+    items = JSON.parse(localStorage.getItem('basketIds')) || [];
+}
 //iterowanie po itemsach oraz wywołanie funkcji dodawania do koszyka
-items.forEach(item => {
-    data.filter(el => el.id === item[0]).forEach(element => addItem(item[1], element))
-});
+function renderBasketList() {
+    refreshLocalStorage();
+    items.forEach(item => {
+        data.filter(el => el.id === item[0]).forEach(element => addItem(item[1], element))
+    });
+}
 
 function addItem(quantity, item) {
     console.log('add item')
@@ -24,11 +27,9 @@ function addItem(quantity, item) {
           </tr>`;
 }
 
-//pobranie buttona do usuwania oraz niżej funkcja usuwająca wiersze
-const deleteBtns = document.querySelectorAll(".delete")
-
 function removeFromBasket(e) {
-    if (e.target.tagName !== 'BUTTON') return;
+    console.log(e.target)
+    if (!e.target.classList.contains('delete')) return;
     const id = Number(e.target.dataset.id);
 
     // Dane, które są aktualnie w local storage
@@ -54,28 +55,24 @@ function removeFromBasket(e) {
     }
 
     // Przeładuj stronę i zaktualizuj koszyk
-    location.reload();
+    itemsContainer.innerHTML = ``;
+    render()
 }
 
-
-// document.addEventListener("click", function (evnt) {
-//     console.log(evnt.target);
-// });
-
-deleteBtns.forEach(element => element.addEventListener("click", removeFromBasket))
+document.addEventListener("click", removeFromBasket);
 
 //dodanie total-price
-let totalPriceCounter = 0;
-items.forEach(item => {
-    data.filter(el => el.id === item[0]).forEach(element => {
-        totalPriceCounter += Number(element.price * item[1])
-    })
-});
-totalPrice.innerText = totalPriceCounter
-//ustawiam sobie tę cenę do localstorage
-localStorage.setItem('totalPrice', JSON.stringify(totalPriceCounter));
-
-
+function updateTotalPrice() {
+    let totalPriceCounter = 0;
+    items.forEach(item => {
+        data.filter(el => el.id === item[0]).forEach(element => {
+            totalPriceCounter += Number(element.price * item[1])
+        })
+    });
+    totalPrice.innerText = totalPriceCounter
+    //ustawiam sobie tę cenę do localstorage
+    localStorage.setItem('totalPrice', JSON.stringify(totalPriceCounter));
+}
 
 //dezaktywacja przycisku dalej
 const goToSummaryButton = document.getElementById('go-to-summary');
@@ -87,7 +84,9 @@ goToSummaryButton.addEventListener('click', function (event) {
     }
 });
 
+function render() {
+    renderBasketList()
+    updateTotalPrice()
+}
 
-
-
-//odświeżanie/renderowanie poszczególnych elementów zamiast ładowania całej strony z każdą zmianą 
+render()

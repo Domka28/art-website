@@ -1,8 +1,6 @@
 import { renderBasket } from "./app.js"
 import { data } from "./data.js"
 
-//home 
-
 const framesList = document.querySelector(".list-frames")
 const portraitsList = document.querySelector(".list-portraits")
 const animalsList = document.querySelector(".list-animals")
@@ -33,7 +31,6 @@ function getBoxElement(element) {
 </div>`
 }
 
-
 let basketMap = new Map();
 
 const addToBasket = (e) => {
@@ -59,7 +56,6 @@ const addToBasket = (e) => {
     localStorage.setItem('basketIds', JSON.stringify([...basketMap]));
     renderBasket()
 }
-
 
 const boxButtons = document.querySelectorAll(".box-button")
 boxButtons.forEach(button => {

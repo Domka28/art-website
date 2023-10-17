@@ -1,4 +1,3 @@
-// navbar
 let navigation = document.querySelector(".navigation-container")
 navigation.innerHTML = `<nav>
 <div class="logo-name">
