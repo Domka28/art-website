@@ -11,48 +11,8 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo-name">
-            <img class="logo" src="src/img/logo2.png" alt="logo">
-            <a href="index.html">ruda wiewiórka art</a>
-        </div>
-        <div class="links">
-            <li class="navigation-item">
-                <a href="index.html">strona główna</a>
-            </li>
-            <li class="navigation-item">
-                <a href="gallery.html">galeria</a>
-            </li>
-            <li class="navigation-item">
-                <a href="contact.html">kontakt</a>
-            </li>
-            <li class="navigation-item nav-basket">
-                <a href="basket.html">koszyk</a>
-                <span class="counter">0</span>
-            </li>
-            <strong id="mobile-menu-btn"><i class="gg-menu"></i></strong>
-        </div>
-    </nav>
-    <!-- Small Screen Navigation Bar -->
-    <div class="mobile-menu">
-
-        <li class="navigation-item">
-            <a href="index.html">strona główna</a>
-        </li>
-        <li class="navigation-item">
-            <a href="gallery.html">galeria</a>
-        </li>
-        <li class="navigation-item">
-            <a href="contact.html">kontakt</a>
-        </li>
-        <li class="navigation-item nav-basket">
-            <a href="basket.html">koszyk</a>
-            <span class="counter">0</span>
-        </li>
+    <div class="navigation-container">
     </div>
-
-
-
     <form class="order-container">
         <h2>Finalizacja zamówienia:</h2>
         <p>Przesłanie formularza nie zobowiązuje do zakupu. Jest to jedynie informacja dla mnie o Twoim zainteresowaniu
@@ -64,33 +24,27 @@
                     <label for="name">Imię i nazwisko</label>
                     <input type="text" id="name" name="name">
                 </div>
-
                 <div class="form-item">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email">
                 </div>
-
                 <div class="form-item">
                     <label for="email-confirm">Powtórz E-mail</label>
                     <input type="email" id="email-confirm" name="email-confirm">
                 </div>
-
                 <div class="form-item">
                     <label for="tel">Telefon</label>
                     <input type="tel" id="tel" name="tel">
                 </div>
-
                 <div class="form-item-textarea">
                     <label for="textarea">Dodatkowe informacje:</label>
                     <textarea type="textarea" id="textarea" name="textarea"></textarea>
                 </div>
-
                 <input type="checkbox" id="agreement" required>
                 <label for="agreement">Wyrażam zgodę na przetwarzanie moich danych osobowych, w celu przetwarzania
                     zgłoszenia.</label>
                 <ul id="errors"></ul>
             </div>
-
             <div class="card">
                 <h3>Podsumowanie:</h3>
                 <ul id="items-list">
@@ -100,12 +54,10 @@
                 <p><b>Data zamówienia</b>: <span id="date"></span></p>
             </div>
         </div>
-
         <div class="order-btns" style="float: right; margin-top: 20px; margin-bottom: 30px">
             <a href="basket.html" class="button">Wróć</a>
             <button type="submit" href="order-confirmation.html" class="button">Zamawiam</button>
         </div>
-
     </form>
 
     <script type="module" src="./src/js/app.js"></script>

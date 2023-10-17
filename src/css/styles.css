@@ -120,7 +120,7 @@ nav .links a {
 
 @media (max-width: 1055px) {
 
-    .logo-name a {
+    .logo-text {
         display: none;
     }
 }
@@ -136,7 +136,7 @@ nav .links a {
         padding: 0 20px 0 5px;
     }
 
-    nav a {
+    nav .link {
         display: none;
     }
 
@@ -268,7 +268,6 @@ img {
         height: 480px;
         width: 555px;
         overflow: hidden;
-
     }
 
 
@@ -369,6 +368,23 @@ img {
         margin-left: 20%;
     }
 
+    .basket-table td div {
+        width: 30px;
+        margin-left: 15%;
+    }
+
+    .delete {
+        margin-left: 5%;
+    }
+
+    .basket-price {
+        margin-left: 20%;
+    }
+
+    #total-price {
+        margin-left: 20%;
+    }
+
 }
 
 /* gallery */
@@ -390,6 +406,12 @@ img {
 
 .img-border:hover {
     border: 2px solid #d4a373;
+}
+
+.img-container {
+    height: 380px;
+    width: 430px;
+    overflow: hidden;
 }
 
 @media (max-width: 930px) {
@@ -465,6 +487,14 @@ img {
 }
 
 
+@media (max-width: 930px) {
+    .contact-container {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 600px;
+    }
+}
+
 @media (max-width: 600px) {
     .contact-container {
         display: flex;
@@ -491,7 +521,6 @@ img {
 .quantity,
 textarea,
 input {
-    padding: 6px;
     border: 0;
     border-bottom: 3px solid #dbdbdb;
     background-color: #f1f1f1;
@@ -500,6 +529,10 @@ input {
 textarea {
     height: 100px;
     margin-top: 1em;
+}
+
+.form-item input {
+    padding: 6px;
 }
 
 .form-item,
@@ -549,7 +582,7 @@ textarea {
     list-style-type: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 740px) {
 
     .order-container h2 {
         font-size: 1.5em;
@@ -589,6 +622,14 @@ textarea {
 
 }
 
+@media (max-width: 400px) {
+    .form-item input {
+        padding: 4px;
+        width: 100px;
+    }
+
+}
+
 
 /* order-confirmation */
 
@@ -603,7 +644,7 @@ textarea {
 }
 
 .thanks-container h2 {
-    margin: 50px auto 20px auto;
+    margin-top: 120px;
 }
 
 
@@ -616,4 +657,10 @@ textarea {
         width: 100%;
         margin-top: 30px;
     }
+
+    .thanks-container h2 {
+        margin-top: 40px;
+        font-size: 1.5em;
+    }
+
 }

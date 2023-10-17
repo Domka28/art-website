@@ -57,6 +57,11 @@ function removeFromBasket(e) {
     location.reload();
 }
 
+
+// document.addEventListener("click", function (evnt) {
+//     console.log(evnt.target);
+// });
+
 deleteBtns.forEach(element => element.addEventListener("click", removeFromBasket))
 
 //dodanie total-price
