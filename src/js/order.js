@@ -114,16 +114,6 @@ function sendOrderEmail(templateParams) {
 // podpięcie formularza
 document.querySelector('form').addEventListener('submit', onSubmit);
 
-
-// wyswietlenie daty zamowienia
-const dateContianer = document.querySelector('#date');
-
-const showOrderDate = (element) => {
-    const d = new Date();
-    element.innerHTML = d.toLocaleString();
-}
-showOrderDate(dateContianer);
-
 // wyświetl podsumowanie (produty)
 const itemsContainer = document.querySelector('#items-list');
 

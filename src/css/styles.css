@@ -123,6 +123,14 @@ nav .links a {
     display: none;
 }
 
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
 @media (max-width: 1055px) {
 
     .logo-text {
@@ -206,7 +214,7 @@ nav .links a {
     max-width: 980px;
     margin: 0 auto;
     width: 925px;
-    margin-top: 30px;
+    margin-top: 150px;
 }
 
 h2 {
@@ -275,7 +283,9 @@ img {
         max-width: 600px;
         width: 600;
         margin: 0 auto;
+        margin-top: 165px;
     }
+
 
     .home-container h2 {
         font-size: 2em;
@@ -288,7 +298,6 @@ img {
         overflow: hidden;
     }
 
-
 }
 
 @media (max-width: 600px) {
@@ -299,7 +308,7 @@ img {
         max-width: 380px;
         width: 380;
         margin: 0 auto;
-        margin-top: 30px;
+        margin-top: 115px;
     }
 
     .home-container h2 {
@@ -324,6 +333,7 @@ img {
     padding: 0 20px;
     max-width: 980px;
     margin: 0 auto;
+    margin-top: 150px;
 }
 
 .basket-table {
@@ -376,7 +386,7 @@ img {
         flex-direction: column;
         padding-left: 18px;
         width: 100%;
-        margin-top: 30px;
+        margin-top: 130px;
     }
 
     .basket-container h2 {
@@ -413,6 +423,7 @@ img {
     max-width: 980px;
     margin: 0 auto;
     width: 925px;
+    margin-top: 150px;
 }
 
 .gallery-list {
@@ -440,11 +451,11 @@ img {
         max-width: 600px;
         width: 600;
         margin: 0 auto;
+        margin-top: 140px;
     }
 
     .gallery-container h2 {
         font-size: 3em;
-
     }
 
     .img-container {
@@ -464,6 +475,7 @@ img {
         width: 380;
         margin: 0 auto;
         margin-top: 30px;
+        margin-top: 130px;
     }
 
     .gallery-container h2 {
@@ -484,6 +496,7 @@ img {
     max-width: 980px;
     margin: 0 auto;
     width: 925px;
+    margin-top: 150px;
 }
 
 .contact-container p,
@@ -511,6 +524,7 @@ img {
         max-width: 600px;
         margin: 0 auto;
         width: 600px;
+        margin-top: 150px;
     }
 }
 
@@ -521,6 +535,7 @@ img {
         padding-left: 18px;
         width: 100%;
         margin-top: 30px;
+        margin-top: 130px;
     }
 
     .contact-container h2 {
@@ -535,6 +550,7 @@ img {
     padding: 0 20px;
     max-width: 980px;
     margin: 0 auto;
+    margin-top: 150px;
 }
 
 .quantity,
@@ -614,6 +630,7 @@ textarea {
         padding: 0 20px;
         width: 100%;
         margin: 0 auto;
+        margin-top: 150px;
     }
 
     .order-container p {
@@ -647,6 +664,10 @@ textarea {
         width: 100px;
     }
 
+    .order-container {
+        margin-top: 130px;
+    }
+
 }
 
 
@@ -660,10 +681,11 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 150px;
 }
 
-.thanks-container h2 {
-    margin-top: 120px;
+.thanks-container p {
+    margin-top: 5px;
 }
 
 
@@ -674,12 +696,16 @@ textarea {
         flex-direction: column;
         padding-left: 18px;
         width: 100%;
-        margin-top: 30px;
+        margin-top: 130px;
     }
 
     .thanks-container h2 {
-        margin-top: 40px;
         font-size: 1.5em;
     }
+
+    .thanks-container p {
+        margin-top: 10px;
+    }
+
 
 }
