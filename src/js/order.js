@@ -14,7 +14,6 @@ const validateEmailConfirm = (value, email) => {
     if (value !== email) return 'E-maile się nie zgadzają';
 }
 const validateTel = (value) => {
-    console.log(value)
     if (!value) return 'Numer telefonu jest wymagany';
     if (value.length < 9) return 'Numer telefonu jest niepoprawny';
 }
@@ -37,7 +36,6 @@ const validateValues = (values) => {
     document.querySelector('#errors').innerHTML = errors
         .map(e => `<li>${e}</li>`)
         .join('');
-
     return errors.length > 0;
 }
 
@@ -62,29 +60,28 @@ const onSubmit = (e) => {
         'email-confirm': elements['email-confirm'].value,
         tel: elements['tel'].value,
     };
-
     let price = localStorage.getItem('totalPrice') || 0;
-
 
     const hasErrors = validateValues(values);
     if (!hasErrors) {
-        console.log("zamawiam")
+        const items = getAllItems();
+        const orderedItems = items.map(item => {
+            return `zamówiony produkt: ${item.title}, ilość: ${item.quantity}`;
+        });
+
+        const summaryTable = `${orderedItems.join('\n')}`;
         const templateParams = {
             form_name: values.name,
             form_email: values.email,
             form_tel: values.tel,
             form_add_info: elements['textarea'].value,
-            summary: JSON.stringify(getAllItems()),
+            summary: summaryTable,
             price: price,
             order_date: new Date().toLocaleString(),
         }
-        console.log("dssfsfd", templateParams)
         sendOrderEmail(templateParams)
-
-
     }
 }
-
 
 function sendOrderEmail(templateParams) {
     var data = {
@@ -119,7 +116,6 @@ const itemsContainer = document.querySelector('#items-list');
 
 //pobranie z pamięci itemsów, które są w koszyku
 let items = JSON.parse(localStorage.getItem('basketIds')) || [];
-
 
 //generowanie itemsów w podsumowaniu
 const showProducts = (element) => {

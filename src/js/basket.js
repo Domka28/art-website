@@ -18,7 +18,6 @@ function renderBasketList() {
 }
 
 function addItem(quantity, item) {
-    console.log('add item')
     itemsContainer.innerHTML += `<tr data-product-id="${item.id}">
             <td><button class="delete" data-id="${item.id}">x</button></td>
             <td>${item.title}</td>
@@ -28,17 +27,13 @@ function addItem(quantity, item) {
 }
 
 function removeFromBasket(e) {
-    console.log(e.target)
     if (!e.target.classList.contains('delete')) return;
     const id = Number(e.target.dataset.id);
-
     // Dane, które są aktualnie w local storage
     let storedBasket = localStorage.getItem('basketIds');
-
     if (storedBasket) {
         // Przerobienie danych, by można było użyć map()
         let basketMap = new Map(JSON.parse(storedBasket));
-
         // Sprawdzenie, czy dany przedmiot istnieje w koszyku
         if (basketMap.has(id)) {
             if (basketMap.get(id) > 1) {
@@ -53,14 +48,12 @@ function removeFromBasket(e) {
             renderBasket()
         }
     }
-
     // Przeładuj stronę i zaktualizuj koszyk
     itemsContainer.innerHTML = ``;
     render()
 }
 
 document.addEventListener("click", removeFromBasket);
-
 //dodanie total-price
 function updateTotalPrice() {
     let totalPriceCounter = 0;
@@ -76,14 +69,12 @@ function updateTotalPrice() {
 
 //dezaktywacja przycisku dalej
 const goToSummaryButton = document.getElementById('go-to-summary');
-
 goToSummaryButton.addEventListener('click', function (event) {
     if (totalPriceCounter === 0) {
         event.preventDefault();
         alert("Nie możesz przejść dalej, ponieważ Twój koszyk jest pusty.");
     }
 });
-
 function render() {
     renderBasketList()
     updateTotalPrice()

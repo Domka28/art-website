@@ -58,22 +58,12 @@ mobileMenuBtn.addEventListener("click", () => {
 
 export function renderBasket() {
     const basketCounter = document.querySelector(".counter")
-    //const basketMobileCounter = document.querySelector(".mobile-counter")
     let items = JSON.parse(localStorage.getItem('basketIds')) || [];
     let counter = 0;
     items.forEach(element => {
         counter += element[1]
     });
     basketCounter.innerText = counter;
-    // basketMobileCounter.innerText = counter;
 }
 
 renderBasket()
-
-
-{/* <a href="basket.html">
-<div class="basket-icon">
-<i class="gg-shopping-cart" style="color: black; margin-right: 10px;"></i>
-<span class="mobile-counter" style="color: black;">0</span>
-</div>
-</a> */}
